@@ -1,17 +1,158 @@
 <html>
     <head>
         <title>SnailPortal - Mobile</title>
-        <script src="https://cdn.snaildos.com/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.snaildos.com/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdn.snaildos.com/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.snaildos.com/w3.css">
+        <style>
+/* Center the loader */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+#container {
+  display: none;
+  text-align: center;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.hidden  {
+            opacity: 0.0;
+        }
+        </style>
     <script>
-        function sys()  {
-            window.location.replace("setup.html")
+        setTimeout(start, 1000);
+        async function start()  {
+            $('.welcome').fadeOut(1);
+            $('.name').fadeOut(1);
+            $('.eulaplace').fadeOut(1);
+            $('.welcome').fadeOut(1);
+            setTimeout(function hello() {
+                $('.welcome').fadeIn(1000)
+}(), 5000);
+        }
+         async function nextwelcome()  {
+            $('.welcome').fadeOut(1000);
+            $('.name').fadeIn(1000);
+        }
+
+
+        function store()  {
+var username = $('#namer').val();
+localStorage.setItem("name", username);
+console.log("Name fetched, Startnig next sequence.")
+$('#name').fadeOut(1000);
+$('.eulaplace').fadeIn(1000);
+return false;
+            }
+
+        function placeholder() {
+            console.log("playerholder.")
+            $("#name").submit(function(e) {
+    e.preventDefault();
+});
+            return false;
+        }
+
+        function agree()  {
+            localStorage.setItem("setup", true);
+            localStorage.setItem("firstime", true);
+            window.location.href = "index.html"
         }
     </script>
+    <script>
+        var myVar;
+        
+        function myFunction() {
+          myVar = setTimeout(showPage, 3000);
+        }
+        
+        function showPage() {
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("container").style.display = "block";
+        }
+        </script>
     </head>
-    <body>
-        <h1 class="w3-center">ooo! dis working?!</h1>
+    <body onload="myFunction()" style="margin:0;">
+        <div id="loader"></div>
+        <div class="container center" id="container" style="display:none;">
+            <div class="welcome center" id="welcome">
+        <h1 class="w3-center">Welcome to SnailPortal! The portal to SnailDOS service on your phone</h1>
+        <h1 class="w3-center">We are going to need to setup the Portal app first!</h1>
+        <p><p></p>
+        <button class="w3-button w3-black" onclick="nextwelcome()">Next!</button>
+    </div>
+    <div class="name center" id="name">
+        <h1 class="w3-center">Just too greet you, we need to get your name! Enter a nickname or a username if you don't want too.</h1>
+        <h4 class="main" class="w3-center"><h2 class="w3-center">Enter your name:</h2>
+            <p>
+                <h2 class="w3-center">Press the submit button when complete.</h2>
+            </p>
+            <p>
+
+            </p><form class="w3-center" onsubmit="placeholder()"> 
+            <input class="namer" id="namer" name="namer" type="namer" id="email" required="true" placeholder="" />
+            </form></h4><h2 class="hidden">h</h2>
+        <p><p></p>
+        <button class="w3-button w3-black" onclick="store()">Submit!</button>
+    </div>
+        <div class="eulaplace center" id="eulaplace">
+    <h1 class="w3-center">By using this app and pressing agree, you agree to the terms and conditions of SnailPortal</h1>
+    <h1 class="w3-center">SnailPortal
+        Info coming soon…
+Updated on the 3/07/2021</h1>
+    <p><p></p>
+    <button class="w3-button w3-black" onclick="agree()">Agree!</button>
+</div>
+    </div>
     </body>
 </html>
