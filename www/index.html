@@ -283,13 +283,15 @@ return false;
           <h1> Name-Changer </h1>
           <div class="cls3"><h4 class="main" class="w3-center"><h2 class="w3-center">Enter your name:</h2>
             <p>
-                <h2 class="w3-center">Press the "enter" key when complete.</h2>
+                <h2 class="w3-center">Press the done button when complete.</h2>
             </p>
             <p>
 
             </p><form class="w3-center" onsubmit="store()"> 
               <input class="name" id="name" name="name" type="name" id="email" required="true" placeholder="" maxlength="10" />
               </form></div>
+          <p></p>
+          <button class="w3-button w3-black" id="submitnamechange" onclick="store()">Done!</button>
           <p></p>
           <button class="w3-button w3-black" id="namechangexit" onclick="document.getElementById('id03').style.display='none'">Cancel</button>
         </div>
@@ -308,7 +310,6 @@ return false;
 <p></p>
 <button class="w3-center w3-black w3-center butop w3-round" onclick="snailhostopen()">Open SnailHost</button>
 <p></p>
-  <button class="w3-center w3-black w3-center butop w3-round" onclick="window.close()">Exit</button>
 <p></p>
 <p>Version 0.0.1 | Mobile Edition</p>
 </main>
