@@ -1,7 +1,7 @@
 {
-  "name": "SnailPortal",
+  "name": "SnailPortal-Mobile",
   "displayName": "SnailPortal",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The official SnailPortal app that allows you to interact with SnailPortal...",
   "main": "index.js",
   "scripts": {
