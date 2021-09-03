@@ -10,15 +10,10 @@
 <link rel="stylesheet" href="box/css/themes/white.min.css">
 <script src="box/js/winbox.min.js"></script>
   <title>SnailDOS Portal</title>
-  <script src="confetti.js"></script>
   <script>
     //boot checker
     $("settings").hide()
   </script>
-    <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
-    </script>
   <script>
     // update check
     (function($){
@@ -27,7 +22,6 @@
   var setup = localStorage.getItem('setup');
   
   if(setup != 'true'){
-    confetti.stop();
     $("div").hide();
     console.log('Setup not finished.');
     window.location.href = "setup.html";
@@ -46,7 +40,6 @@
     $(".namers").hide();
     console.log('First boot!');
     $("#welcome").click();
-    confetti.start()
   }
   
   });
@@ -56,7 +49,6 @@
 var name = localStorage.getItem('name');
 
     function complete() {
-      confetti.stop()
       localStorage.setItem("firstime", "false");
       $(".namers").show();
       document.getElementById('id01').style.display='none'
@@ -139,8 +131,8 @@ html {
     }
     .settings {
      line-height: 20px;
-     width: 200px;
-     height: 100px;
+     width: 80px;
+     height: 70px;
      font-size: 30pt;
      font-family: tahoma;
      margin-top: 1px;
@@ -298,7 +290,7 @@ return false;
       </div>
     </div>
   </div>
-<button class="settings w3-button w3-white w3-round-xxlarge" onclick="settings()">Settings</button>
+<img class="settings w3-button w3-white w3-round-xxlarge" onclick="settings()" src="setting.png"></img>
 <div id="namers" class="namers">
   <h1 style="display:inline-block;">Hello, <div style="height:1em" id="namedefine" style="display:block; float:right" ></div></h1>
 </div>
@@ -311,7 +303,7 @@ return false;
 <button class="w3-center w3-black w3-center butop w3-round" onclick="snailhostopen()">Open SnailHost</button>
 <p></p>
 <p></p>
-<p>Version 0.0.1 | Mobile Edition</p>
+<p>Version 0.0.3 | Mobile Edition</p>
 </main>
   <script>
       document.getElementById("namedefine").innerHTML = localStorage.getItem("name");
